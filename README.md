@@ -18,7 +18,8 @@
 
 <br>
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-43215F?style=for-the-badge&logo=linkedin&logoColor=E9D5FF)](www.linkedin.com/in/julia-svensson-sec)
+
+[![LinkedIn](https://img.shields.io/badge/Connect_on_LinkedIn-43215F?style=for-the-badge&logo=linkedin&logoColor=E9D5FF)](https://www.linkedin.com/in/julia-svensson-sec/)
 [![TryHackMe](https://img.shields.io/badge/TryHackMe-241335?style=for-the-badge&logo=tryhackme&logoColor=C9A7FF)](https://tryhackme.com/p/mangatameow)
 [![Hack The Box](https://img.shields.io/badge/Hack_The_Box-43215F?style=for-the-badge&logo=hackthebox&logoColor=E9D5FF)](https://profile.hackthebox.com/profile/019c94cf-99e8-7111-ad19-555ccec86018?utm_medium=copy_url)
 
