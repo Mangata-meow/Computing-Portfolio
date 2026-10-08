@@ -50,10 +50,9 @@ My main interests are cybersecurity, especially offensive security and penetrati
 
 Outside of computers, I'm a huge cat person, an enthusiastic collector of books, and someone who genuinely enjoys learning new things.
 
-
 <div align="center">
   <a href="https://giphy.com/gifs/kitten-cute-cat-on-throne-MMquV2oInK40V86Q7g">
-    <img src="https://media.giphy.com/media/MMquV2oInK40V86Q7g/giphy.gif" width="240" alt="Cute kitten on a throne">
+    <img src="https://i.giphy.com/MMquV2oInK40V86Q7g.gif" width="240" alt="Cute kitten on a throne">
   </a>
   <p><i>Every computing lab needs a little supervisor. 🐈‍⬛</i></p>
 </div>
