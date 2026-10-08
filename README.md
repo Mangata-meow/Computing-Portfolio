@@ -53,7 +53,7 @@ Outside of computers, I'm a huge cat person, an enthusiastic collector of books,
 
 <div align="center">
   <img src="kitty-on-the-throne.gif" width="240" alt="Kitten sitting on a throne">
-  <p><i>How I feel after successfully completing a lab without breaking anything. 👑🐈‍⬛</i></p>
+  <p><i>Me after fixing a problem I created myself. 👑🐈‍⬛</i></p>
 </div>
 
 
