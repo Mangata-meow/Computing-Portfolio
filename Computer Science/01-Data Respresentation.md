@@ -67,7 +67,6 @@ $$2^4 = 16$$
 
 This makes a nibble convenient for representing **one hexadecimal digit**.
 
----
 
 ## 1.3 Units of Digital Storage
 
@@ -121,8 +120,6 @@ Therefore:
 $$80\text{ Mbps} = 10\text{ MB/s}$$
 
 This is a **unit conversion**, not a guarantee of actual network throughput. Real transfer speeds may be lower because of protocol overhead, network conditions, and hardware limitations.
-
----
 
 ## 1.4 Bit Positions: MSB and LSB
 
@@ -183,7 +180,6 @@ $$10110110_2 = 182_{10}$$
 
 **Important:** MSB and LSB describe the significance of bits within a representation. They should not be confused with **byte order (endianness)**, which describes how multi-byte values are arranged in memory.
 
----
 
 ## 1.5 Bit Patterns vs Meaning
 
@@ -312,8 +308,6 @@ Different number systems are useful in different situations:
 - **Octal:** provides a compact representation of binary values and is used in Unix file permissions.
 - **Hexadecimal:** provides a particularly convenient and compact representation of binary data.
 
----
-
 ## 2.2 Binary
 
 The **binary number system** is a positional system with base `2`.
@@ -350,7 +344,6 @@ $$110101_2 = 53_{10}$$
 
 Binary is fundamental to computer science because digital hardware can represent and manipulate binary states using electronic circuits.
 
----
 
 ## 2.3 Octal
 
@@ -418,7 +411,6 @@ $$001101111_2 = 157_8$$
 
 Octal notation is particularly useful when working with **Unix and Linux file permissions**.
 
----
 
 ## 2.4 Hexadecimal
 
@@ -576,7 +568,6 @@ For example, the decimal number `45` can be represented as:
 
 Although their representations differ, their numerical value remains the same.
 
----
 
 ## 3.1 Binary to Decimal
 
@@ -653,7 +644,6 @@ $$101001_2 = 41_{10}$$
 
 **Important:** Each binary position represents a power of two. Only positions containing `1` contribute to the final sum.
 
----
 
 ## 3.2 Decimal to Binary: Repeated Division
 
@@ -743,7 +733,6 @@ For hexadecimal, remainders from `10` to `15` are represented by the letters `A`
 
 **Important:** The remainders must be read from bottom to top because the first remainder represents the least significant digit, while the last represents the most significant digit.
 
----
 
 ## 3.3 Binary to Hexadecimal
 
@@ -877,7 +866,6 @@ $$1010_2 = 10_{10}$$
 - Combine the hexadecimal digits in their original order.
 - If the number of bits is already divisible by four, no additional zeros are needed.
 
----
 
 ## 3.4 Hexadecimal to Binary
 
@@ -1009,8 +997,6 @@ Even if a hexadecimal digit could be represented using fewer binary digits, we w
 - The conversion does not require repeated division or multiplication.
 
 **Remember:** Binary-to-hexadecimal conversion involves grouping bits into fours, while hexadecimal-to-binary conversion involves replacing each hexadecimal digit with four bits.
-
----
 
 ## 3.5 Decimal to Hexadecimal
 
