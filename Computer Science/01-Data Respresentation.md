@@ -120,7 +120,6 @@ $$80\text{ Mbps} = 10\text{ MB/s}$$
 
 This is a **unit conversion**, not a guarantee of actual network throughput. Real transfer speeds may be lower because of protocol overhead, network conditions, and hardware limitations.
 
----
 
 ## 1.4 Bit Positions: MSB and LSB
 
@@ -180,7 +179,6 @@ $$10110110_2 = 182_{10}$$
 
 **Important:** MSB and LSB describe the significance of bits within a representation. They should not be confused with **byte order (endianness)**, which describes how multi-byte values are arranged in memory.
 
----
 
 ## 1.5 Bit Patterns vs Meaning
 
@@ -307,7 +305,6 @@ Different number systems are useful in different situations:
 - **Octal:** provides a compact representation of binary values and is used in Unix file permissions.
 - **Hexadecimal:** provides a particularly convenient and compact representation of binary data.
 
----
 
 ## 2.2 Binary
 
@@ -345,7 +342,6 @@ $$110101_2 = 53_{10}$$
 
 Binary is fundamental to computer science because digital hardware can represent and manipulate binary states using electronic circuits.
 
----
 
 ## 2.3 Octal
 
@@ -413,7 +409,6 @@ $$001101111_2 = 157_8$$
 
 Octal notation is particularly useful when working with **Unix and Linux file permissions**.
 
----
 
 ## 2.4 Hexadecimal
 
