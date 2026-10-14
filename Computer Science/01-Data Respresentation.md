@@ -549,3 +549,180 @@ The prefix `0x` commonly indicates that a value is written in **hexadecimal nota
 
 **Important:** Hexadecimal does not change the underlying value. It only provides a different, more compact way of representing it.
 
+
+# 3. Number-System Conversions
+
+Number-system conversion is the process of expressing the **same numerical value in a different base**.
+
+For example, the decimal number `45` can be represented as:
+
+- **Binary:** `101101₂`
+- **Octal:** `55₈`
+- **Decimal:** `45₁₀`
+- **Hexadecimal:** `2D₁₆`
+
+Although their representations differ, their numerical value remains the same.
+
+
+## 3.1 Binary to Decimal
+
+To convert a binary number into decimal, **multiply each binary digit by its corresponding power of two and add the results**.
+
+The general formula is:
+
+$$N = \sum_{i=0}^{n-1} b_i \times 2^i$$
+
+Where:
+- **N** = decimal value
+- **bᵢ** = binary digit at position `i`
+- **i** = bit position, starting from `0` on the right
+- **n** = total number of bits
+
+### Example 1: Convert 101101₂ to Decimal
+
+Consider the binary number:
+
+$$101101_2$$
+
+Assign each digit its corresponding positional weight:
+
+| Bit position | Binary digit | Weight | Contribution |
+|-------------:|-------------:|-------:|-------------:|
+| 5 | 1 | 32 | 32 |
+| 4 | 0 | 16 | 0 |
+| 3 | 1 | 8 | 8 |
+| 2 | 1 | 4 | 4 |
+| 1 | 0 | 2 | 0 |
+| 0 | 1 | 1 | 1 |
+
+Multiply each digit by its corresponding power of two:
+
+$$1(2^5)+0(2^4)+1(2^3)+1(2^2)+0(2^1)+1(2^0)$$
+
+$$=32+0+8+4+0+1$$
+
+$$=45$$
+
+Therefore:
+
+$$101101_2 = 45_{10}$$
+
+### Example 2: Convert 101001₂ to Decimal
+
+Consider the binary number:
+
+$$101001_2$$
+
+Assign each digit its corresponding positional weight:
+
+| Bit position | Binary digit | Weight | Contribution |
+|-------------:|-------------:|-------:|-------------:|
+| 5 | 1 | 32 | 32 |
+| 4 | 0 | 16 | 0 |
+| 3 | 1 | 8 | 8 |
+| 2 | 0 | 4 | 0 |
+| 1 | 0 | 2 | 0 |
+| 0 | 1 | 1 | 1 |
+
+Multiply each digit by its corresponding power of two:
+
+$$1(2^5)+0(2^4)+1(2^3)+0(2^2)+0(2^1)+1(2^0)$$
+
+$$=32+0+8+0+0+1$$
+
+$$=41$$
+
+Therefore:
+
+$$101001_2 = 41_{10}$$
+
+**Important:** Each binary position represents a power of two. Only positions containing `1` contribute to the final sum.
+
+
+## 3.2 Decimal to Binary: Repeated Division
+
+To convert a decimal integer into binary, **repeatedly divide the number by two and record the remainder of each division**.
+
+The remainder will always be either:
+
+- `0` — when the number is even.
+- `1` — when the number is odd.
+
+Continue dividing the integer quotient until it becomes `0`.
+
+The binary representation is obtained by **reading the remainders from bottom to top**.
+
+### Example 1: Convert 45₁₀ to Binary
+
+Consider the decimal number:
+
+$$45_{10}$$
+
+Repeatedly divide by two:
+
+| Division | Quotient | Remainder |
+|----------|---------:|----------:|
+| 45 ÷ 2 | 22 | 1 |
+| 22 ÷ 2 | 11 | 0 |
+| 11 ÷ 2 | 5 | 1 |
+| 5 ÷ 2 | 2 | 1 |
+| 2 ÷ 2 | 1 | 0 |
+| 1 ÷ 2 | 0 | 1 |
+
+Read the remainders **from bottom to top**:
+
+`101101`
+
+Therefore:
+
+$$45_{10} = 101101_2$$
+
+### Example 2: Convert 18₁₀ to Binary
+
+Consider the decimal number:
+
+$$18_{10}$$
+
+Repeatedly divide by two:
+
+| Division | Quotient | Remainder |
+|----------|---------:|----------:|
+| 18 ÷ 2 | 9 | 0 |
+| 9 ÷ 2 | 4 | 1 |
+| 4 ÷ 2 | 2 | 0 |
+| 2 ÷ 2 | 1 | 0 |
+| 1 ÷ 2 | 0 | 1 |
+
+Read the remainders **from bottom to top**:
+
+`10010`
+
+Therefore:
+
+$$18_{10} = 10010_2$$
+
+### Verification
+
+To verify the result, convert the binary representation back into decimal:
+
+$$10010_2 = 1(2^4)+0(2^3)+0(2^2)+1(2^1)+0(2^0)$$
+
+$$=16+0+0+2+0$$
+
+$$=18$$
+
+The conversion is correct.
+
+### General Rule
+
+Repeated division can be used to convert a nonnegative decimal integer into any positional number system.
+
+Instead of always dividing by two, divide by the **base of the target number system**:
+
+- **Binary:** divide by `2`.
+- **Octal:** divide by `8`.
+- **Hexadecimal:** divide by `16`.
+
+For hexadecimal, remainders from `10` to `15` are represented by the letters `A` through `F`.
+
+**Important:** The remainders must be read from bottom to top because the first remainder represents the least significant digit, while the last represents the most significant digit.
