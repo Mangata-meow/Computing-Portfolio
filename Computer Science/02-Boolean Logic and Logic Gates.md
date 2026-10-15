@@ -278,5 +278,5 @@ The book and university laboratory use common **American-style logic gate symbol
 | NOR | OR shape with a small output circle |
 | XNOR | XOR shape with a small output circle |
 
-![Logic Gate Symbols](../Assets/Images/logic-gate-symbols.png)
+![Logic Gate Symbols](../Assets/Images/logic-gates.png)
 
