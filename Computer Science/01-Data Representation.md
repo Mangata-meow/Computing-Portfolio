@@ -11,7 +11,7 @@ These values are abstract symbols representing two distinguishable states.
 
 In physical hardware, binary states may be implemented through electrical charge, voltage levels, magnetic orientation, or other physical properties.
 
-A bit does not inherently mean *true*, *false*, *on*, or *off*. Those meanings depend on the system interpreting it.
+A bit does not inherently mean *true*, *false*, *on*, or *off*. Those meanings depend on the system interpreting it. That means that 0s and 1s are symbols, and their meaning fully depends on how we use them.
 
 ### Why Binary?
 
