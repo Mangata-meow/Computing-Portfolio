@@ -31,7 +31,6 @@ The same logical operation can be implemented using transistors, relays, or othe
 
 A **Boolean expression** combines variables and logical operators to produce a Boolean result.
 
-Suppose:
 
 | Operation | Common notation | Meaning |
 |---|---|---|
@@ -94,7 +93,158 @@ For two inputs, the combinations are `00`, `01`, `10`, and `11`. For three input
 
 A truth table describes **what** a circuit does (or does not), not necessarily **how** it is built.
 
-## 2.4 The NOT Gate (Negation)
+---
+
+## 2.4 Boolean Algebra Laws
+
+Boolean algebra provides rules for rewriting expressions without changing their truth values. These laws are important when analyzing or simplifying circuits.
+
+
+| Law | AND form | OR form |
+|---|---|---|
+| Identity | `A AND 1 = A` | `A OR 0 = A` |
+| Domination | `A AND 0 = 0` | `A OR 1 = 1` |
+| Idempotence | `A AND A = A` | `A OR A = A` |
+| Complement | `A AND NOT A = 0` | `A OR NOT A = 1` |
+| Commutative | `A AND B = B AND A` | `A OR B = B OR A` |
+| Associative | `(A AND B) AND C = A AND (B AND C)` | `(A OR B) OR C = A OR (B OR C)` |
+| Absorption | `A AND (A OR B) = A` | `A OR (A AND B) = A` |
+
+
+**Double negation:**
+
+
+$$\neg(\neg A) = A$$
+
+
+**Distributive laws:**
+
+
+$$A \land (B \lor C) = (A \land B) \lor (A \land C)$$
+
+
+$$A \lor (B \land C) = (A \lor B) \land (A \lor C)$$
+
+
+Unlike ordinary arithmetic, Boolean algebra has **both** distributive forms.
+
+
+### Example 1: Simplify `A AND (A OR B)`
+
+
+By absorption:
+
+
+`A AND (A OR B) = A`.
+
+
+If `A = 0`, both sides are `0`. If `A = 1`, `(A OR B)` is necessarily `1`, so both sides are `1`.
+
+
+### Example 2: Simplify `A OR (A AND B)`
+
+
+By absorption:
+
+
+`A OR (A AND B) = A`.
+
+
+If `A = 1`, the whole expression is `1`. If `A = 0`, the AND term is `0`, so the whole expression is `0`.
+
+
+---
+
+
+## 2.5 De Morgan's Laws
+
+
+**De Morgan's laws** explain how negation interacts with AND and OR:
+
+
+$$\neg(A \land B) = (\neg A) \lor (\neg B)$$
+
+
+$$\neg(A \lor B) = (\neg A) \land (\neg B)$$
+
+
+In words:
+
+
+- **NOT (A AND B)** means **(NOT A) OR (NOT B)**.
+- **NOT (A OR B)** means **(NOT A) AND (NOT B)**.
+
+
+Notice that **the operator changes** when negation is distributed over the entire expression: AND becomes OR, and OR becomes AND.
+
+
+### Example 1: Negating a Login Requirement
+
+
+Original condition:
+
+
+`ValidPassword AND ValidCode`
+
+
+Negated condition:
+
+
+`NOT (ValidPassword AND ValidCode)`
+
+
+Using De Morgan's law:
+
+
+`(NOT ValidPassword) OR (NOT ValidCode)`
+
+
+The login requirement fails if **at least one** requirement is missing.
+
+
+### Example 2: Negating an Alarm Condition
+
+
+Original condition:
+
+
+`SmokeDetected OR HeatDetected`
+
+
+Negated condition:
+
+
+`NOT (SmokeDetected OR HeatDetected)`
+
+
+Using De Morgan's law:
+
+
+`(NOT SmokeDetected) AND (NOT HeatDetected)`
+
+
+The alarm condition is false only if **neither** trigger is present.
+
+
+### Verify De Morgan's First Law with a Truth Table
+
+
+| A | B | A AND B | NOT (A AND B) | NOT A | NOT B | (NOT A) OR (NOT B) |
+|---:|---:|---:|---:|---:|---:|---:|
+| 0 | 0 | 0 | **1** | 1 | 1 | **1** |
+| 0 | 1 | 0 | **1** | 1 | 0 | **1** |
+| 1 | 0 | 0 | **1** | 0 | 1 | **1** |
+| 1 | 1 | 1 | **0** | 0 | 0 | **0** |
+
+
+
+The two highlighted result columns have identical values for every input combination, so the expressions are equivalent.
+
+
+---
+
+
+## 2.6 The NOT Gate (Negation)
 
 **NOT** reverses a logical value. It has **one input** and **one output**.
 
@@ -117,7 +267,7 @@ A flag reports `A = 0` when a feature is disabled. `NOT A = 1`, so the statement
 
 ---
 
-## 2.5 The AND Gate (Logical Conjunction)
+## 2.7 The AND Gate (Logical Conjunction)
 
 **AND** produces `1` only when **all its inputs are `1`**.
 
@@ -142,14 +292,14 @@ For `A = 1`, `B = 0`:
 
 ### Example 2: Safety Interlock
 
-A machine may operate only when its guard is closed (`A`) and the start command is active (`B`).
+A machine may operate only when its guard is closed (`A`), and the start command is active (`B`).
 
 For `A = 1`, `B = 1`:
 
-`1 AND 1 = 1` — the Boolean permission condition is satisfied, machien can operate.
+`1 AND 1 = 1` — the Boolean permission condition is satisfied; the machine can operate.
 
 
-## 2.6 The OR Gate (Logical Disjunction)
+## 2.8 The OR Gate (Logical Disjunction)
 
 **OR** produces `1` when **at least one input is `1`**. This is **inclusive OR**: when both inputs are `1`, the output is still `1`.
 
@@ -180,7 +330,7 @@ For `A = 1`, `B = 1`:
 
 `1 OR 1 = 1` — access is permitted; both conditions being true does not cancel the result.
 
-## 2.7 The XOR Gate (Exclusive OR)
+## 2.9 The XOR Gate (Exclusive OR)
 
 **XOR** produces `1` when **exactly one of its two inputs is `1`**, or simply when the inputs differ.
 
@@ -193,7 +343,7 @@ $$Y = A \oplus B$$
 | 1 | 0 | 1 |
 | 1 | 1 | 0 |
 
-This is different from inclusive OR: `1 OR 1 = 1`, meanwhile `1 XOR 1 = 0`.
+This is different from inclusive OR: `1 OR 1 = 1`, whereas `1 XOR 1 = 0`.
 
 XOR can be expressed using NOT, AND, and OR:
 
@@ -209,7 +359,7 @@ For `A = 1`, `B = 1`, the bits match:
 
 `1 XOR 1 = 0`.
 
-## 2.8 NAND, NOR, and XNOR
+## 2.10 NAND, NOR, and XNOR
 
 These gates negate the outputs of other logical operations.
 
@@ -243,7 +393,7 @@ NOR outputs `1` **only when both inputs are `0`**.
 
 $$Y = \neg(A \oplus B)$$
 
-XNOR outputs `1` when **the two inputs are equal**. Does not matter if they are both `1` or both `0`.
+XNOR outputs `1` when **the two inputs are equal**. It does not matter if they are both `1` or both `0`.
 
 | A | B | A XNOR B |
 |---:|---:|---:|
@@ -264,7 +414,7 @@ For `A = 0`, `B = 0`:
 
 `OR = 0`, so `NOR = NOT 0 = 1`.
 
-## 2.9 Reading Logic Gate Symbols
+## 2.11 Reading Logic Gate Symbols
 
 The book and university laboratory use common **American-style logic gate symbols**.
 
