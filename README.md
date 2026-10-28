@@ -52,7 +52,7 @@ My main interests are cybersecurity, especially offensive security and penetrati
 Outside of computers, I'm a huge cat person, an enthusiastic collector of books, and someone who genuinely enjoys learning new things.
 
 <div align="center">
-  <img src="./Assets/GIFs/kitty-on-the-throne.gif" width="200" alt="Kitty on the throne">
+  <img src="https://raw.githubusercontent.com/Mangata-meow/Computing-Portfolio/main/Assets/GIFs/kitty-on-the-throne.gif" width="200" alt="Kitty on the throne">
   <p><i>Me after fixing a problem I created myself. 👑🐈</i></p>
 </div>
 
