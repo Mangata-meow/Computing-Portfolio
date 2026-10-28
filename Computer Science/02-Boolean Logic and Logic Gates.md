@@ -231,15 +231,13 @@ The alarm condition is false only if **neither** trigger is present.
 
 | A | B | A AND B | NOT (A AND B) | NOT A | NOT B | (NOT A) OR (NOT B) |
 |---:|---:|---:|---:|---:|---:|---:|
-| 0 | 0 | 0 | **1** | 1 | 1 | **1** |
-| 0 | 1 | 0 | **1** | 1 | 0 | **1** |
-| 1 | 0 | 0 | **1** | 0 | 1 | **1** |
-| 1 | 1 | 1 | **0** | 0 | 0 | **0** |
+| 0 | 0 | 0 | 1 | 1 | 1 | 1 |
+| 0 | 1 | 0 | 1 | 1 | 0 | 1 |
+| 1 | 0 | 0 | 1 | 0 | 1 | 1 |
+| 1 | 1 | 1 | 0 | 0 | 0 | 0 |
 
 
-
-The two highlighted result columns have identical values for every input combination, so the expressions are equivalent.
-
+The columns NOT (A AND B) and (NOT A) OR (NOT B) have identical values for every input combination, demonstrating that the two expressions are logically equivalent.
 
 ---
 
