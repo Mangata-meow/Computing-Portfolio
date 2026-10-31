@@ -1,8 +1,10 @@
-# 2. Boolean Logic and Logic Gates
+# 3. Boolean Logic and Logic Gates
 
 Boolean logic explains how computers make decisions using two logical values. **Logic gates** implement these operations in hardware, and combinations of gates form circuits that calculate, compare, control, and store information.
 
-## 2.1 From Binary Data to Boolean Logic
+---
+
+## 3.1 From Binary Data to Boolean Logic
 
 A **Boolean variable** can take one of two values:
 
@@ -27,7 +29,9 @@ A logical `0` is **not necessarily exactly 0 volts**, and a logical `1` is **not
 
 The same logical operation can be implemented using transistors, relays, or other technologies. **The truth table describes the behavior independently of the implementation.**
 
-## 2.2 Boolean Expressions and Notation
+---
+
+## 3.2 Boolean Expressions and Notation
 
 A **Boolean expression** combines variables and logical operators to produce a Boolean result.
 
@@ -72,7 +76,9 @@ Given `A = 0`, `B = 1`, and `C = 0`:
 
 **Result: `0`.**
 
-## 2.3 Truth Tables
+---
+
+## 3.3 Truth Tables
 
 A **truth table** lists the output of a Boolean expression for **every possible combination of input values**. It is one of the most reliable ways to verify a logical expression or circuit.
 
@@ -95,7 +101,7 @@ A truth table describes **what** a circuit does (or does not), not necessarily *
 
 ---
 
-## 2.4 Boolean Algebra Laws
+## 3.4 Boolean Algebra Laws
 
 Boolean algebra provides rules for rewriting expressions without changing their truth values. These laws are important when analyzing or simplifying circuits.
 
@@ -155,8 +161,7 @@ If `A = 1`, the whole expression is `1`. If `A = 0`, the AND term is `0`, so the
 
 ---
 
-
-## 2.5 De Morgan's Laws
+## 3.5 De Morgan's Laws
 
 
 **De Morgan's laws** explain how negation interacts with AND and OR:
@@ -241,8 +246,7 @@ The columns NOT (A AND B) and (NOT A) OR (NOT B) have identical values for every
 
 ---
 
-
-## 2.6 The NOT Gate (Negation)
+## 3.6 The NOT Gate (Negation)
 
 **NOT** reverses a logical value. It has **one input** and **one output**.
 
@@ -265,7 +269,7 @@ A flag reports `A = 0` when a feature is disabled. `NOT A = 1`, so the statement
 
 ---
 
-## 2.7 The AND Gate (Logical Conjunction)
+## 3.7 The AND Gate (Logical Conjunction)
 
 **AND** produces `1` only when **all its inputs are `1`**.
 
@@ -296,8 +300,9 @@ For `A = 1`, `B = 1`:
 
 `1 AND 1 = 1` — the Boolean permission condition is satisfied; the machine can operate.
 
+---
 
-## 2.8 The OR Gate (Logical Disjunction)
+## 3.8 The OR Gate (Logical Disjunction)
 
 **OR** produces `1` when **at least one input is `1`**. This is **inclusive OR**: when both inputs are `1`, the output is still `1`.
 
@@ -328,7 +333,9 @@ For `A = 1`, `B = 1`:
 
 `1 OR 1 = 1` — access is permitted; both conditions being true does not cancel the result.
 
-## 2.9 The XOR Gate (Exclusive OR)
+---
+
+## 3.9 The XOR Gate (Exclusive OR)
 
 **XOR** produces `1` when **exactly one of its two inputs is `1`**, or simply when the inputs differ.
 
@@ -357,7 +364,9 @@ For `A = 1`, `B = 1`, the bits match:
 
 `1 XOR 1 = 0`.
 
-## 2.10 NAND, NOR, and XNOR
+---
+
+## 3.10 NAND, NOR, and XNOR
 
 These gates negate the outputs of other logical operations.
 
@@ -412,7 +421,7 @@ For `A = 0`, `B = 0`:
 
 `OR = 0`, so `NOR = NOT 0 = 1`.
 
-## 2.11 Reading Logic Gate Symbols
+## 3.11 Reading Logic Gate Symbols
 
 The book and university laboratory use common **American-style logic gate symbols**.
 
