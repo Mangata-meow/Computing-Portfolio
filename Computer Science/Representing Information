@@ -1,0 +1,272 @@
+# 1. Representing Information as Bits
+
+Computers store and process many kinds of information—text, colors, images, and sound—using **bits** (`0` and `1`). The meaning of a bit pattern depends on the **encoding** used to interpret it.
+
+---
+
+## 1.1 Text Representation
+
+### ASCII
+
+The **American Standard Code for Information Interchange (ASCII)** is a character encoding standardized in the United States, with standards work associated with the **American National Standards Institute (ANSI)** and its predecessors. ASCII uses **7-bit patterns**, providing `2^7 = 128` codes. These represent:
+
+- Uppercase and lowercase letters of the English alphabet.
+- Digits `0`–`9`.
+- Punctuation and other printable symbols.
+- Control characters, such as **line feed** and **horizontal tab**.
+
+A 7-bit ASCII code can be stored in an 8-bit byte by placing a leading `0` before it. This does **not** mean that ASCII itself defines the remaining 128 byte values. Various **8-bit extensions** assign meanings to byte values `128`–`255`, and these extensions are not all compatible.
+
+#### Worked example: `Hello!` in ASCII
+
+Each character below occupies one byte when ASCII is stored in an 8-bit representation:
+
+| Character | H | e | l | l | o | ! |
+|---|---|---|---|---|---|---|
+| 8-bit binary | `01001000` | `01100101` | `01101100` | `01101100` | `01101111` | `00100001` |
+
+The complete byte sequence is:
+
+```text
+01001000 01100101 01101100 01101100 01101111 00100001
+```
+
+**Size:** 6 characters × 8 bits = **48 bits = 6 bytes**.
+
+### Extended Character Sets and ISO Standards
+
+The **International Organization for Standardization (ISO)** developed the **ISO/IEC 8859** family of 8-bit character encodings for different language groups. For example, **ISO-8859-1** (Latin-1) includes characters such as `£`, `å`, `ö`, and `ä`, used in several Western European languages.
+
+These encodings improved multilingual support, but a single 8-bit encoding provides at most **256 distinct code values**, which is not enough to represent the writing systems of the world simultaneously. Different language groups often required different encodings.
+
+### Unicode
+
+**Unicode** assigns a unique **code point** to characters and other textual elements from many writing systems. Its code-point range extends from `U+0000` to `U+10FFFF`—a range requiring up to **21 bits** to number—but not every value in that range is assigned to a character.
+
+**Important distinction:** Unicode defines code points; **UTF-8, UTF-16, and UTF-32** are encoding forms that represent those code points as bytes or code units. A Unicode character does not always correspond to exactly one visible symbol (for example, some symbols combine multiple code points).
+
+### UTF-8
+
+**UTF-8** is widely used on the modern web. It uses a variable number of bytes per Unicode code point:
+
+| Code-point range | Bytes in UTF-8 | Typical examples |
+|---|---:|---|
+| `U+0000`–`U+007F` | 1 | ASCII letters, digits, punctuation |
+| `U+0080`–`U+07FF` | 2 | Many accented letters and other scripts |
+| `U+0800`–`U+FFFF` (excluding surrogates) | 3 | Most commonly used Chinese and Japanese characters |
+| `U+10000`–`U+10FFFF` | 4 | Many emoji and less-common characters |
+
+**Compatibility:** The original ASCII characters have the same **single-byte values** in UTF-8 as in ASCII. For example, `H` is `01001000` in both.
+
+A character's byte length depends on its **code point**, not how visually complicated it looks. Some emoji sequences contain multiple code points and therefore require more than four bytes overall.
+
+### UTF-16
+
+**UTF-16** uses either **one 16-bit code unit (2 bytes)** or **two 16-bit code units (4 bytes)** per Unicode code point:
+
+- Most common Latin characters and many Chinese Hanzi fit in one 16-bit code unit.
+- Supplementary characters, including many emoji, require a **surrogate pair**: two 16-bit code units. Neither surrogate is a complete character by itself.
+
+Byte order matters when UTF-16 is stored as bytes (**UTF-16LE** versus **UTF-16BE**).
+
+### UTF-32
+
+**UTF-32** uses exactly **one 32-bit code unit (4 bytes)** per Unicode code point. This makes code-point indexing straightforward, but it generally requires more storage than UTF-8 for ordinary English text.
+
+Not all four-byte sequences represent valid Unicode code points. UTF-32's fixed width applies to **code points**, not necessarily to user-perceived characters or grapheme clusters.
+
+### Comparison
+
+| Encoding | Units per Unicode code point | Key characteristic |
+|---|---|---|
+| ASCII | 7 bits (commonly stored in 1 byte) | Limited to 128 codes |
+| ISO-8859 family | 1 byte | Different 8-bit encodings for different character sets |
+| UTF-8 | 1–4 bytes | ASCII-compatible; common on the web |
+| UTF-16 | 2 or 4 bytes | Uses surrogate pairs for supplementary code points |
+| UTF-32 | 4 bytes | Fixed width per code point; comparatively storage-intensive |
+
+---
+                                                                                                                                                                                                                                                
+## 1.2 Color Representation
+
+A common digital color model is **RGB**: **Red**, **Green**, and **Blue**. In a standard **24-bit RGB** representation, each component uses **8 bits** and therefore has **256 possible levels** (`0`–`255`).
+
+The number of possible RGB combinations is:
+
+\[
+256 \times 256 \times 256 = 2^{24} = 16,777,216
+\]
+
+RGB colors are commonly written using **six hexadecimal digits**, two per component, with a leading `#` in web color notation:
+
+```text
+#RRGGBB
+```
+
+### Worked example: `#A3EA2A`
+
+| Component | Hexadecimal | Decimal | Binary |
+|---|---|---:|---|
+| Red | `A3` | 163 | `10100011` |
+| Green | `EA` | 234 | `11101010` |
+| Blue | `2A` | 42 | `00101010` |
+
+Combined binary representation:
+
+```text
+10100011 11101010 00101010
+```
+
+Hexadecimal is more compact and easier to read than the equivalent 24-bit binary pattern.
+
+**Note:** This is a common representation of RGB component values; actual perceived color also depends on the color space and display characteristics (for example, sRGB).
+
+---
+                                                                                                                                                       
+## 1.3 Image Representation
+
+### Raster Images and Pixels
+
+A **pixel** (short for *picture element*) is an individual sample in a raster image. A raster image is represented as a grid of pixels, each with stored information describing its appearance. This pixel-based representation is often called a **bitmap**.
+
+Printers and digital displays commonly work with pixel-based image data, although their physical rendering mechanisms differ.
+
+The number of bits used to represent a pixel depends on the image format and application:
+
+- **1-bit black-and-white image:** one bit per pixel, allowing two possible values (for example, black and white).
+- **8-bit grayscale image:** commonly one byte per pixel, allowing **256 grayscale levels**.
+- **24-bit RGB image:** three bytes per pixel, one for each red, green, and blue component.
+
+### RGB Image Encoding
+
+In an ordinary 24-bit RGB image, each pixel stores three 8-bit intensity values:
+
+```text
+Pixel = (Red, Green, Blue)
+```
+
+For example:
+
+```text
+(163, 234, 42) = #A3EA2A
+```
+
+A single uncompressed 24-bit RGB pixel requires:
+
+\[
+3 \times 8 = 24\text{ bits} = 3\text{ bytes}
+\]
+
+#### Worked example: Raw image size
+
+For a `1920 × 1080` image with 24 bits per pixel:
+
+\[
+1920 \times 1080 \times 3 = 6,220,800\text{ bytes}
+\]
+
+That is approximately **6.22 MB** (decimal) or **5.93 MiB**, excluding file headers, padding, and compression.
+
+### Raster Scaling and Digital Zoom
+
+A raster image has a finite number of pixel samples. Enlarging it beyond its original resolution does not recover detail that was never recorded. Simple nearest-neighbor scaling makes pixels appear as visible blocks; other interpolation methods can produce smoother results but cannot fully restore missing information.
+
+This is one limitation of **digital zoom** when it enlarges an existing raster image rather than capturing additional detail.
+
+### Luminance and Chrominance
+
+Another way to represent color information separates **brightness-related information** from **color-difference information**.
+
+A common example is **YCbCr**, which uses:
+
+- **Y′ (luma):** a weighted combination of gamma-encoded RGB components, related to perceived brightness.
+- **Cb:** a blue-difference chroma component.
+- **Cr:** a red-difference chroma component.
+
+**Correction to the original notes:** Y′ is **not simply the sum of R, G, and B**. Likewise, Cb and Cr are defined by weighted color-difference transformations rather than just subtracting a raw RGB component from a simple sum. Strictly speaking, **luma (Y′)** is distinct from physical **luminance (Y)**.
+
+Together, the three components can describe color information. Some image and video systems store chroma at lower spatial resolution than luma (**chroma subsampling**) to reduce data size.
+
+Separating brightness and color information was important in the development of **color television** because it helped preserve compatibility with older black-and-white television receivers. Related luma/chroma approaches are also common in digital video and image compression.
+
+### Vector Graphics: Geometric Representation
+
+An alternative to storing an image as a fixed pixel grid is to describe it using **geometric shapes**, such as lines, curves, and polygons.
+
+This is the principle behind **vector graphics**. A rendering device calculates how to display the shapes at the required size, so vector artwork can usually be scaled without the pixelation associated with enlarging a low-resolution raster image.
+
+Examples of geometric representations include:
+
+- **Scalable fonts:** glyph outlines can be described mathematically; **TrueType** is a font-outline technology/format, not itself an image-editing program.
+- **SVG (Scalable Vector Graphics):** an image format based on geometric elements and paths.
+- **CAD (Computer-Aided Design):** software for creating and manipulating geometric models, including 2D drawings and 3D objects.
+
+Vector representations are particularly suitable for logos, diagrams, technical drawings, and text outlines. Photographs are usually better represented as raster images.
+
+---
+                                                                                    
+## 1.4 Audio Representation
+
+### Digital Audio Sampling
+
+Sound in air is a continuous physical pressure wave. A common way to store sound digitally is to **sample** the amplitude of an electrical signal representing that sound at regular time intervals and encode the measurements as numbers.
+
+The **sample rate** is the number of samples taken per second, measured in **hertz (Hz)**.
+
+#### Example 1: Traditional Telephone Audio
+
+A sample rate of **8,000 samples per second (8 kHz)** has long been used in digital telephone systems.
+
+The interval between samples is:
+
+\[
+\frac{1}{8000}\text{ s} = 0.000125\text{ s} = 125\text{ µs}
+\]
+
+The sampled values can be transmitted to the receiving end, where equipment uses them to reconstruct an approximation of the original audio signal.
+
+**Correction:** Sampling 8,000 times per second means **one sample every 1/8,000 second**, not every eight-thousandths of a second.
+
+#### Example 2: Audio CD
+
+Standard audio CDs use:
+
+- **44,100 samples per second** per channel (**44.1 kHz**).
+- **16 bits per sample** per channel.
+- **2 channels** for stereo.
+
+The uncompressed bit rate is:
+
+\[
+44,100 \times 16 \times 2 = 1,411,200\text{ bits/s}
+\]
+
+Therefore, one second of uncompressed stereo CD-quality audio requires:
+
+\[
+1,411,200 \div 8 = 176,400\text{ bytes}
+\]
+
+This is approximately **176.4 kB per second**, excluding additional format or storage overhead.
+
+**Important:** Stereo does not mean each individual sample has a 32-bit depth. It means **two 16-bit samples**—one per channel—are stored for each sample instant, totaling 32 bits across the two channels.
+
+### MIDI: Describing Musical Events Instead of Recorded Sound
+
+**MIDI** stands for **Musical Instrument Digital Interface**. Rather than storing the sampled audio waveform, MIDI commonly stores **performance instructions or events**, such as:
+
+- Which note to play.
+- When to start the note (**Note On**).
+- When to stop it (**Note Off**).
+- Which instrument/program or channel to use.
+- Performance parameters such as velocity.
+
+For example, a MIDI sequence can instruct a synthesizer to play a D note with a clarinet-like instrument sound for two seconds. Because the recording describes **events rather than waveform samples**, it can be much smaller than sampled audio.
+
+**Important correction:** A complete instruction to play a note for two seconds generally **cannot be represented by only three bytes**. A basic MIDI Note On message may use three bytes, but the note's duration also requires timing information and a corresponding Note Off event (or an equivalent event). Instrument selection may require additional messages.
+
+MIDI playback can sound different on different synthesizers because the actual sound is generated by the receiving instrument or software, not stored as a fixed audio recording.
+
+
+5. How many bits per second are required for uncompressed 44.1 kHz, 16-bit stereo audio?
+6. Why might the same MIDI file sound different on two devices?
