@@ -1,5 +1,8 @@
+<h1>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux" width="40" align="center" />
+  Regular Expressions (RegEx)
+</h1>
 
-# Regular Expressions (RegEx)
 
 Regular Expressions (RegEx) allow users to search, filter, replace, and manipulate text with precision.
 
