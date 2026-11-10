@@ -1,5 +1,8 @@
+<h1>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux" width="40" align="center" />
+  Vim Text Editor
+</h1>
 
-# Vim Text Editor
 
 Vim (Vi Improved) is a powerful, terminal-based text editor commonly used in Linux.
 
