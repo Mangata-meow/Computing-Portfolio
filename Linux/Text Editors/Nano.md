@@ -1,5 +1,9 @@
 
-# Nano Text Editor
+<h1>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux" width="40" align="center" />
+  Nano Text Editor
+</h1>
+
 
 Nano is a beginner-friendly, terminal-based text editor available on many Linux systems.
 
