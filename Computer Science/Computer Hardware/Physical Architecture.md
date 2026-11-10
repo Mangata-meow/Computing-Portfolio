@@ -8,7 +8,7 @@ The motherboard holds different components in place and connects them. The compu
 
 The CPU executes instructions. Modern CPUs commonly have multiple cores that can execute instructions in parallel.
 
-## 3. SSD and HDD
+### 3. [SSD/HDD](Storage%20Systems.md)
 
 Data is saved long-term on storage devices.
 
@@ -17,19 +17,25 @@ Data is saved long-term on storage devices.
 
 Depending on the device, drives may connect through **SATA** or **PCI Express (PCIe)** interfaces. For example, many NVMe SSDs use PCIe.
 
-## 4. Network Adapter
+
+### 4. [RAM (Random Access Memory)](Memory%20Systems.md)
+
+RAM is the computer's main memory, temporarily storing data and instructions that the CPU needs quick access to. It is volatile, meaning its contents are lost when the computer is powered off.
+
+
+## 5. Network Adapter
 
 A network adapter allows computers to communicate with other systems. Network adapters can be wired or wireless. They are often integrated into the motherboard but can also be added as expansion cards, commonly using PCI Express.
 
-## 5. PSU (Power Supply Unit)
+## 6. PSU (Power Supply Unit)
 
 The PSU supplies electrical power to the system's components, converting power from an electrical outlet into the voltages required by the computer. It must be chosen carefully: if the components require more power than the PSU can reliably provide, the system may become unstable or fail to operate.
 
-## 6. Graphics Card
+## 7. Graphics Card
 
 A graphics card contains a **GPU (Graphics Processing Unit)**, which processes and renders visual data for display. Dedicated graphics cards commonly connect through PCI Express. Some computers instead use a GPU integrated into the CPU or another chip.
 
-## 7. Input and Output Devices
+## 8. Input and Output Devices
 
 **Input devices:** keyboard, microphone, mouse, scanner.
 
