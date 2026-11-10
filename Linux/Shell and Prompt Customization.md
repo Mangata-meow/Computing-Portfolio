@@ -48,3 +48,11 @@ PS1="\u@\H:\w [\t]$ "
 ```text
 julia@cyber:/home/julia/projects [14:32:10]$
 ```
+
+
+---
+
+## Useful Resources
+
+- [ExplainShell](https://explainshell.com/) – An interactive tool that explains Linux shell commands and their arguments. Useful for understanding unfamiliar commands, options, and command combinations.
+
