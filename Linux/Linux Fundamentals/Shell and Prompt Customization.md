@@ -1,5 +1,9 @@
 
-# Shell and Prompt Customization
+<h1>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux" width="40" align="center" />
+  Shell and Prompt Customization
+</h1>
+
 
 The shell is a command-line interface that allows users to interact with the operating system by entering commands.
 
