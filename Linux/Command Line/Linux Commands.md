@@ -1,4 +1,9 @@
-# Linux Commands
+
+<h1>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux" width="40" align="center" />
+  Linux Commands
+</h1>
+
 
 A quick reference to common Linux commands. Detailed examples are organized into separate topic files.
 
