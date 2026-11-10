@@ -1,9 +1,9 @@
 
-<div align="center">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux Logo" width="80" />
+<h1>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux" width="40" align="center" />
+  Linux
+</h1>
 
-  # Linux
-</div>
  
 
 Exploring Linux operating systems, command-line tools, filesystem management, shell scripting, system administration, and security.
