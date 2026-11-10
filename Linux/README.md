@@ -1,5 +1,10 @@
 
-# Linux
+<div align="center">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux Logo" width="80" />
+
+  # Linux
+</div>
+ 
 
 Exploring Linux operating systems, command-line tools, filesystem management, shell scripting, system administration, and security.
 
@@ -13,7 +18,6 @@ Introduction to Linux concepts, filesystem structure, user accounts, and shell c
 
 - [Linux Philosophy](Linux%20Fundamentals/Philosophy.md)
 - [Linux File System](Linux%20Fundamentals/File%20System.md)
-- [Linux Users and Groups](Linux%20Fundamentals/Linux%20Users%20and%20Groups.md)
 - [Shell and Prompt Customization](Linux%20Fundamentals/Shell%20and%20Prompt%20Customization.md)
 
 ## Command Line
