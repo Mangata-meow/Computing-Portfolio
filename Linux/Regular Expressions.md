@@ -422,51 +422,264 @@ Requires both patterns to appear somewhere on the same line, in any order.
 
 ---
 
-## 8. Additional Practical Examples
+## 8. Practical Examples and Exercises
 
-### Find Lines Beginning with a Specific Word
+The following examples demonstrate how to use regular expressions with `grep -E` in Linux.
 
-```bash
-grep -E "^root" /etc/passwd
-```
+### 8.1. Find Lines Beginning with a Specific Word
 
-Finds lines starting with `root`.
-
-### Find Lines Ending with a Specific Word
+**Task:** Find lines beginning with `root`.
 
 ```bash
-grep -E "false$" /etc/passwd
+grep -E '^root' /etc/passwd
 ```
 
-Finds lines ending with `false`.
+**Explanation:**
+- `^` → beginning of the line
+- `root` → matches the literal text `root`
 
-### Find Lines Containing Numbers
+This finds lines starting with `root`, including lines where additional characters follow it.
+
+### 8.2. Find Lines Ending with a Specific Word
+
+**Task:** Find lines ending with `false`.
 
 ```bash
-grep -E "[0-9]" example.txt
+grep -E 'false$' /etc/passwd
 ```
 
-Finds lines containing at least one digit.
+**Explanation:**
+- `false` → matches the literal text `false`
+- `$` → end of the line
 
-### Find Lines Containing Exactly Three Digits
+This finds lines ending with `false`.
+
+### 8.3. Find Lines Containing Numbers
+
+**Task:** Find lines containing at least one digit.
 
 ```bash
-grep -E "^[0-9]{3}$" example.txt
+grep -E '[0-9]' example.txt
 ```
 
-Finds lines containing exactly three digits and nothing else.
+**Explanation:**
+- `[0-9]` → matches any digit from 0 to 9
 
-### Find Multiple Keywords in a Log File
+This finds lines containing one or more digits.
+
+### 8.4. Find Lines Containing Exactly Three Digits
+
+**Task:** Find lines containing exactly three digits and nothing else.
 
 ```bash
-grep -Ei "error|failed|denied" /var/log/auth.log
+grep -E '^[0-9]{3}$' example.txt
 ```
 
-Searches for lines containing `error`, `failed`, or `denied`, ignoring case.
+**Explanation:**
+- `^` → beginning of the line
+- `[0-9]` → any digit from 0 to 9
+- `{3}` → exactly three repetitions
+- `$` → end of the line
 
-The log file path and its availability depend on the Linux distribution.
+**Matches:**
+- `123`
+- `456`
+- `007`
+
+**Does not match:**
+- `12`
+- `1234`
+- `abc123`
+
+### 8.5. Find Multiple Keywords in a Log File
+
+**Task:** Find lines containing `error`, `failed`, or `denied`, ignoring case.
+
+```bash
+grep -Ei 'error|failed|denied' /var/log/auth.log
+```
+
+**Explanation:**
+- `-E` → enables Extended Regular Expressions
+- `-i` → ignores uppercase/lowercase differences
+- `|` → OR operator
+
+This searches for lines containing any of the three keywords.
+
+**Note:** The log file path and its availability depend on the Linux distribution.
+
+### 8.6. Exclude Lines Containing a Character
+
+**Task:** Show all lines that do not contain the `#` character.
+
+```bash
+grep -E '^[^#]*$' filename
+```
+
+**Explanation:**
+- `^` → beginning of the line
+- `[^#]` → matches any character except `#`
+- `*` → zero or more repetitions
+- `$` → end of the line
+
+This matches entire lines that do not contain `#`, including empty lines.
+
+**Alternative using inverted matching:**
+
+```bash
+grep -v '#' filename
+```
+
+The `-v` option displays lines that do not match the specified pattern.
+
+### 8.7. Find Words Beginning with a Pattern
+
+**Task:** Search for all lines containing a word that starts with `Permit`.
+
+```bash
+grep -E '\bPermit[a-zA-Z]*\b' filename
+```
+
+**Explanation:**
+- `\b` → word boundary
+- `Permit` → matches the exact text `Permit`
+- `[a-zA-Z]*` → zero or more letters after `Permit`
+- `\b` → word boundary
+
+**Matches:**
+- `Permit`
+- `PermitRootLogin`
+- `PermitEmptyPasswords`
+
+**Does not match:**
+- `NoPermit`
+- `permitRootLogin`
+
+### 8.8. Find Words Ending with a Pattern
+
+**Task:** Search for all lines containing a word ending with `Authentication`.
+
+```bash
+grep -E '\b[a-zA-Z]*Authentication\b' filename
+```
+
+**Explanation:**
+- `\b` → word boundary
+- `[a-zA-Z]*` → zero or more letters before `Authentication`
+- `Authentication` → matches the exact text
+- `\b` → word boundary
+
+**Matches:**
+- `Authentication`
+- `PasswordAuthentication`
+- `PubkeyAuthentication`
+
+**Does not match:**
+- `AuthenticationMethod`
+- `PasswordAuthenticationEnabled`
+- `authentication`
+
+### 8.9. Find an Exact Word
+
+**Task:** Search for all lines containing the word `Key`.
+
+```bash
+grep -E '\bKey\b' filename
+```
+
+**Explanation:**
+- `\b` → word boundary
+- `Key` → matches the exact text `Key`
+- `\b` → word boundary
+
+**Matches:**
+- `Key`
+- `The Key is valid`
+- `Key: value`
+
+**Does not match:**
+- `PublicKey`
+- `Keyboard`
+- `key`
+
+### 8.10. Find Lines Beginning with Password and Containing yes
+
+**Task:** Search for all lines beginning with `Password` and containing `yes`.
+
+**Solution 1: Using a Single Regular Expression**
+
+```bash
+grep -E '^Password.*yes' filename
+```
+
+**Explanation:**
+- `^` → beginning of the line
+- `Password` → matches the exact text `Password`
+- `.*` → zero or more characters
+- `yes` → matches the literal text `yes`
+
+The line must begin with `Password` and contain `yes` somewhere after it.
+
+**Solution 2: Combining Two grep Commands**
+
+```bash
+grep -E '^Password[a-zA-Z]*' filename | grep -E '\byes\b'
+```
+
+**Explanation:**
+1. The first `grep` finds lines beginning with `Password`, optionally followed by letters.
+2. The pipe `|` passes matching lines to the second command.
+3. The second `grep` keeps only lines containing the whole word `yes`.
+
+**Important difference:**
+
+- Solution 1 also matches `yes` inside another word, such as `yesterday`.
+- Solution 2 requires `yes` to be a whole word.
+
+Both solutions are useful for practicing regular expressions and pipes.
+
+### 8.11. Find Lines Ending with yes
+
+**Task:** Search for all lines that end with `yes`.
+
+**Solution 1: Using a Character Class**
+
+```bash
+grep -E '[a-zA-Z]*yes$' filename
+```
+
+**Explanation:**
+- `[a-zA-Z]*` → zero or more letters
+- `yes` → matches the literal text `yes`
+- `$` → end of the line
+
+Because `*` allows zero occurrences, this pattern also matches lines with spaces or other characters before `yes`.
+
+**Solution 2: Using Only the End-of-Line Anchor**
+
+```bash
+grep -E 'yes$' filename
+```
+
+**Explanation:**
+- `yes` → matches the literal text `yes`
+- `$` → requires `yes` to appear at the end of the line
+
+Both solutions match the same lines in this case, but Solution 2 is simpler.
+
+**Matches:**
+- `PasswordAuthentication yes`
+- `PermitRootLogin yes`
+- `yes`
+- `somethingyes`
+
+**Does not match:**
+- `PasswordAuthentication no`
+- `yes please`
+- `yes123`
 
 ---
+
 
 ## 9. Useful grep Options
 
