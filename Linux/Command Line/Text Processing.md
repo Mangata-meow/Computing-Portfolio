@@ -1,4 +1,8 @@
-# Text Processing in Linux
+
+<h1>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux" width="40" align="center" />
+  Text Processing in Linux
+</h1>
 
 Linux command-line tools can read, search, filter, format, and transform text streams.
 
