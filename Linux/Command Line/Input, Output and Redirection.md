@@ -1,4 +1,7 @@
-# Input, Output, Pipes, and Redirection
+<h1>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg" alt="Linux" width="40" align="center" />
+  Input, Output, Pipes, and Redirection
+</h1>
 
 ## 1. File Descriptors and Standard Streams
 
