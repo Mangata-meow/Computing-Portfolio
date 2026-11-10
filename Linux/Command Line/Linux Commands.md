@@ -94,7 +94,7 @@ See [System Information and Networking](System%20Information%20and%20Networking.
 | `awk` | Processes records and fields |
 | `sed` | Edits text streams |
 
-See [Text Processing](Text%20Processing.md) and [Input, Output and Redirection](Input%20,%20Output%20and%20Redirection.md).
+See [Text Processing](Text%20Processing.md) and [Input, Output and Redirection](Input%2C%20Output%20and%20Redirection.md).
 
 ## Useful Resource
 
