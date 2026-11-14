@@ -54,6 +54,77 @@ However, MAC addresses are not guaranteed to be unique in every situation, as th
 
 ---
 
+
+## Internet Protocol (IP) Address
+
+An **Internet Protocol (IP) address** is a numerical identifier assigned to a network interface on a network that uses the Internet Protocol for communication.
+
+IP addresses allow devices to identify and communicate with each other across different networks.
+
+There are two versions of IP addresses: **IPv4** and **IPv6**.
+
+### IPv4 (Internet Protocol Version 4)
+
+IPv4 addresses are **32 bits long** and are typically represented as four decimal numbers separated by dots.
+
+**Example:**
+
+```text
+192.168.1.1
+```
+
+Each number represents 8 bits (one byte) and can range from 0 to 255.
+
+### IPv6 (Internet Protocol Version 6)
+
+IPv6 addresses are **128 bits long** and are typically represented as eight groups of four hexadecimal digits separated by colons.
+
+**Example:**
+
+```text
+2001:0db8:0000:0000:0000:ff00:0042:8329
+```
+
+IPv6 addresses can also be shortened by omitting leading zeros and compressing consecutive groups of zeros.
+
+---
+
+## Private and Public IP Addresses
+
+IP addresses can be divided into **private** and **public** addresses.
+
+### Private IP Addresses
+
+**Private IP addresses** are designated for use within local networks, such as homes, schools, and offices.
+
+These addresses are not routable on the public Internet, meaning that routers on the global Internet do not forward packets to these private address ranges.
+
+Common private IPv4 address ranges include:
+
+| Private IP Range | CIDR Notation |
+|---|---|
+| `10.0.0.0` – `10.255.255.255` | `10.0.0.0/8` |
+| `172.16.0.0` – `172.31.255.255` | `172.16.0.0/12` |
+| `192.168.0.0` – `192.168.255.255` | `192.168.0.0/16` |
+
+Private IP addresses allow devices within local networks to communicate without requiring a unique public IP address for every device.
+
+They also reduce the direct exposure of internal devices to the public Internet. However, private addressing alone does not guarantee network security.
+
+### Public IP Addresses
+
+**Public IP addresses** are globally unique addresses used for communication across the public Internet.
+
+They are allocated through Internet address registries and are commonly assigned to customers by **Internet Service Providers (ISPs)**.
+
+Public IP addresses allow devices and networks to be identified and reached across the Internet.
+
+Unlike private IP addresses, public IP addresses are globally routable.
+
+However, having a public IP address does not automatically mean that a device is accessible from anywhere, as firewalls and other network configurations may restrict incoming connections.
+
+---
+
 ## Types of Networks
 
 ### Local Area Network (LAN)
