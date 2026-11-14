@@ -15,6 +15,45 @@ Links can be either **wired** or **wireless**.
 
 ---
 
+## Media Access Control (MAC) Address
+
+A **Media Access Control (MAC) address** is an identifier assigned to a network interface, such as a Network Interface Card (NIC), allowing it to be identified within a local network.
+
+MAC addresses play an important role in communication within a local network segment, helping ensure that data is delivered to the correct network interface.
+
+### MAC Address Structure
+
+A traditional MAC address is **48 bits (6 bytes)** long and is typically represented in **hexadecimal format**.
+
+It consists of six pairs of hexadecimal digits, usually separated by colons (`:`).
+
+**Example:**
+
+```text
+00:1A:2B:3C:4D:5E
+```
+
+Each pair represents one byte (8 bits).
+
+A traditional globally administered MAC address consists of two main parts:
+
+1. **Organizationally Unique Identifier (OUI)** — The first 24 bits (the first three pairs of hexadecimal digits) identify the organization that registered the identifier, typically the manufacturer of the network interface.
+
+2. **Device-specific identifier** — The remaining 24 bits (the last three pairs) are assigned by the manufacturer to distinguish individual network interfaces.
+
+**Example breakdown:**
+
+```text
+00:1A:2B : 3C:4D:5E
+   OUI  : Device-specific identifier
+```
+
+This addressing structure is designed to support globally unique MAC addresses and reduce address conflicts.
+
+However, MAC addresses are not guaranteed to be unique in every situation, as they can be manually changed, spoofed, or randomly generated.
+
+---
+
 ## Types of Networks
 
 ### Local Area Network (LAN)
